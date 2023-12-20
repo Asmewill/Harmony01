@@ -29,8 +29,6 @@ function blueTextStyle(){
 
 
 
-
-
 @Entry
 @Component
 struct LoginPage {
@@ -49,7 +47,7 @@ struct LoginPage {
   }
 
   login():void{
-    if(this.account===''||this.password===''){
+    if(this.account==''||this.password==''){
       promptAction.showToast({
         message: $r('app.string.input_empty_tips')
       })
@@ -103,7 +101,7 @@ struct LoginPage {
         }
         .width("100%")
         .justifyContent(FlexAlign.SpaceBetween)
-        .margin({top:8})
+        .margin({top:12})
 
        Button($r('app.string.login'), { type: ButtonType.Capsule })
          .width("90%").height(40).fontSize(16)

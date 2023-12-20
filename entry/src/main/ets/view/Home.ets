@@ -41,7 +41,9 @@ export default struct Home {
         .columnsTemplate("1fr 1fr 1fr 1fr")
         .rowsTemplate("1fr 1fr")
         .columnsGap(8)
+        .rowsGap(8)
         .padding({ top: 12, bottom: 12 })
+        .width("100%")
         .height(124)
         .backgroundColor($r("app.color.white"))
         .borderRadius(24)
@@ -57,7 +59,6 @@ export default struct Home {
                  Text(item.others).margin({top:4}).fontSize(12)
                    .fontColor($r("app.color.home_grid_fontColor"))
                }.alignItems(HorizontalAlign.Start)
-
              }
              .backgroundImage(item.img)
              .borderRadius(12)

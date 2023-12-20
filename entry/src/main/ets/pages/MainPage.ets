@@ -14,11 +14,11 @@ struct MainPage {
 
   @Builder tabBuilder(title: string, index: number, selectedImg: Resource, normalImg: Resource) {
     Column() {
-      Image(this.currentIndex === index ? selectedImg : normalImg)
+      Image(this.currentIndex == index ? selectedImg : normalImg)
         .width(25).height(25)
       Text(title).margin({ top: 7 })
         .fontSize(10)
-        .fontColor(this.currentIndex === index ? $r("app.color.mainPage_selected") : $r("app.color.mainPage_normal"))
+        .fontColor(this.currentIndex==index ? $r("app.color.mainPage_selected") : $r("app.color.mainPage_normal"))
     }.height(56).width("100%").justifyContent(FlexAlign.Center).onClick(() => {
       this.currentIndex=index;
       this.tabsController.changeIndex(this.currentIndex);
@@ -35,7 +35,6 @@ struct MainPage {
       }
      // .tabBar("首页")
       .tabBar(this.tabBuilder("首页", 0, $r("app.media.home_selected"), $r("app.media.home_normal")))
-
       TabContent() {
         Setting()
       }

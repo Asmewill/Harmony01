@@ -1,6 +1,9 @@
 
+import display from '@ohos.display';
+import ClassifyModel from '../../viewmodel/AnimationMode';
+import { GlobalContext } from '../utils/GlobalContext';
 
-
+let deviceDisplay:display.Display=GlobalContext.getContext().getObject("display") as display.Display;
 
 export default   class CommonConstants{
   /**
@@ -129,6 +132,28 @@ export default   class CommonConstants{
    * Mine tab index
    */
   static readonly MINE_TAB_INDEX = 1;
+
+
+  /**
+   * Date dialog start time.
+   */
+  static readonly START_TIME: string = '1900-1-1';
+
+  /**
+   * Date dialog select time.
+   */
+  static readonly SELECT_TIME: string = '1990-1-1';
+
+  /**
+   * refresh header item feature
+   */
+  static readonly IMAGE_MODEL_ARRAY:ClassifyModel[]=[
+    new ClassifyModel($r("app.media.ic_loading_game"),  (px2vp(deviceDisplay.width)/2 - 30/2)-100,400),
+    new ClassifyModel($r("app.media.ic_loading_heart"), (px2vp(deviceDisplay.width)/2 - 30/2)-50,400),
+    new ClassifyModel($r("app.media.ic_loading_louder"),(px2vp(deviceDisplay.width)/2 - 30/2)-0,400),
+    new ClassifyModel($r("app.media.ic_loading_bag"),   (px2vp(deviceDisplay.width)/2 - 30/2)+50,400),
+    new ClassifyModel($r("app.media.ic_loading_file"),  (px2vp(deviceDisplay.width)/2 - 30/2)+100,400),
+  ]
 
 
 

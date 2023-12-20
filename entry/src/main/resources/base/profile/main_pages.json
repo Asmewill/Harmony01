@@ -3,6 +3,8 @@
     "pages/IndexPage",
     "pages/SecondPage",
     "pages/LoginPage",
-    "pages/MainPage"
+    "pages/MainPage",
+    "pages/MultipleDialogPage",
+    "pages/RefreshPage"
   ]
 }
