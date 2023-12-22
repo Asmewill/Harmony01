@@ -1,13 +1,32 @@
 
+import display from '@ohos.display';
 import CommonConstants from '../common/constants/CommonConstants';
 import { RefreshConstant, RefreshState } from '../common/constants/RefreshConstants'
 import DimensionUtil from '../common/utils/DimensionUtil';
+import { GlobalContext } from '../common/utils/GlobalContext';
 import ClassifyModel from '../viewmodel/AnimationMode';
 
 @Component
 export default struct RefreshAnimHeader{
+
   @Consume(RefreshConstant.REFRESH_STATE_TAG) @Watch("onStateCheck") state:number;
+
   @State iconWidth:number= 30;
+
+  private deviceDisplay:display.Display=GlobalContext.getContext().getObject("display") as display.Display;
+
+  private IMAGE_MODEL_ARRAY:ClassifyModel[];
+  aboutToAppear(){
+    this.IMAGE_MODEL_ARRAY= [
+      new ClassifyModel($r("app.media.ic_loading_game"),  (px2vp(this.deviceDisplay.width)/2 - 30/2)-100,400),
+      new ClassifyModel($r("app.media.ic_loading_heart"), (px2vp(this.deviceDisplay.width)/2 - 30/2)-50,400),
+      new ClassifyModel($r("app.media.ic_loading_louder"),(px2vp(this.deviceDisplay.width)/2 - 30/2)-0,400),
+      new ClassifyModel($r("app.media.ic_loading_bag"),   (px2vp(this.deviceDisplay.width)/2 - 30/2)+50,400),
+      new ClassifyModel($r("app.media.ic_loading_file"),  (px2vp(this.deviceDisplay.width)/2 - 30/2)+100,400),
+    ];
+  }
+
+
 
   private onStateCheck(){
     if(this.state===RefreshState.REFRESHING){//正在刷新
@@ -34,7 +53,7 @@ export default struct RefreshAnimHeader{
   build(){
     Row(){
       if(this.state !==RefreshState.IDLE){ // stop animation when idle state.
-        ForEach(CommonConstants.IMAGE_MODEL_ARRAY,(item:ClassifyModel)=>{
+        ForEach(this.IMAGE_MODEL_ARRAY,(item:ClassifyModel)=>{
             this.AttrAnimIcons(item)
         })
       }

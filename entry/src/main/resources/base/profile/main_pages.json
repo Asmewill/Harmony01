@@ -5,6 +5,7 @@
     "pages/LoginPage",
     "pages/MainPage",
     "pages/MultipleDialogPage",
-    "pages/RefreshPage"
+    "pages/RefreshPage",
+    "pages/NewsPage"
   ]
 }

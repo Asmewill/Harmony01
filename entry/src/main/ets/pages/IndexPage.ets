@@ -6,7 +6,7 @@ const TAG = '[IndexPage]';
 
 @Entry
 @Component
-struct IndexPage {
+struct  IndexPage {
   @State message: string = CommonConstants.INDEX_MESSAGE
 
   build() {
@@ -64,9 +64,31 @@ struct IndexPage {
               })
           })
 
+        Button("新闻数据加载---从网络获取数据")
+          .fontSize(16)
+          .width("80%")
+          .margin({ top: 10 })
+          .onClick(() => {
+            router.pushUrl({ url: "pages/NewsPage", params: { param: "MultipleDialog" } })
+              .catch((error: Error) => {
+                Logger.info(TAG, "IndexPage push error" + JSON.stringify(error))
+              })
+          })
       }.width("100%").backgroundColor($r('app.color.page_bg'))
-
     }
-
   }
 }
+
+
+/****
+ * export default命令用于指定模块的默认输出。
+ * 显然，一个模块只能有一个默认输出，因此export default命令只能使用一次。
+ * 所以，import命令后面才不用加大括号，因为只可能唯一对应export default
+ * 区别：
+ * 1.export与export default均可用于导出常量、函数、文件、模块等
+ * 2.在一个文件或模块中，export、import可以有多个，export default仅有一个
+ * 3.通过export方式导出，在导入时要加{ }，export default则不需要，并可以起任意名称
+ * 4.输出多个值，使用export
+ * 5.输出单个值，使用export default
+ * 6.export default与普通的export不要同时使用
+ */

@@ -26,7 +26,6 @@ export class MainViewModel{
       new ItemData($r("app.string.recycle_bin"),$r("app.media.recycle"))
     ]
     return firstGridData;
-
   }
 
   getSecondGridData():Array<ItemData>{

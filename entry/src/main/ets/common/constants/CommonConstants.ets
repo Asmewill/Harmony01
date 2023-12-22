@@ -1,9 +1,10 @@
 
 import display from '@ohos.display';
 import ClassifyModel from '../../viewmodel/AnimationMode';
+import { NewsTypeBean } from '../../viewmodel/NewsViewModel';
 import { GlobalContext } from '../utils/GlobalContext';
 
-let deviceDisplay:display.Display=GlobalContext.getContext().getObject("display") as display.Display;
+
 
 export default   class CommonConstants{
   /**
@@ -147,12 +148,28 @@ export default   class CommonConstants{
   /**
    * refresh header item feature
    */
-  static readonly IMAGE_MODEL_ARRAY:ClassifyModel[]=[
-    new ClassifyModel($r("app.media.ic_loading_game"),  (px2vp(deviceDisplay.width)/2 - 30/2)-100,400),
-    new ClassifyModel($r("app.media.ic_loading_heart"), (px2vp(deviceDisplay.width)/2 - 30/2)-50,400),
-    new ClassifyModel($r("app.media.ic_loading_louder"),(px2vp(deviceDisplay.width)/2 - 30/2)-0,400),
-    new ClassifyModel($r("app.media.ic_loading_bag"),   (px2vp(deviceDisplay.width)/2 - 30/2)+50,400),
-    new ClassifyModel($r("app.media.ic_loading_file"),  (px2vp(deviceDisplay.width)/2 - 30/2)+100,400),
+
+
+  /**
+   * The host address of the server.
+   */
+  static readonly SERVER: string = 'http://192.168.2.113:9588';
+
+  /**
+   * Get the news type.
+   */
+  static readonly GET_NEWS_TYPE: string = 'news/getNewsType';
+
+
+  static readonly TabBars_DEFAULT_NEWS_TYPES:Array<NewsTypeBean>=[
+    { id: 0, name: '全部' },
+    { id: 1, name: '国内' },
+    { id: 2, name: '国际' },
+    { id: 3, name: '娱乐' },
+    { id: 4, name: '军事' },
+    { id: 5, name: '体育' },
+    { id: 6, name: '科技' },
+    { id: 7, name: '财经' }
   ]
 
 

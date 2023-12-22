@@ -1,10 +1,15 @@
+import display from '@ohos.display';
 import { RefreshConstant, RefreshHeaderStyle, RefreshState } from '../common/constants/RefreshConstants';
+import { GlobalContext } from '../common/utils/GlobalContext';
+import ClassifyModel from '../viewmodel/AnimationMode';
 import RefreshAnimHeader from './RefreshAnimHeader';
 import RefreshDefaultHeader from './RefreshDefaultHeader';
 
 
 @Component
 export default struct RefreshComponent {
+
+
   private headerStyle: RefreshHeaderStyle = RefreshHeaderStyle.DEFAULT; //下拉刷新的样式
   private displayHeight: number = 0; //list显示的长度
   @State headerOffset: number = 0; //list与顶部的距离

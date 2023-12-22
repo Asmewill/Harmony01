@@ -10,14 +10,12 @@ const TAG = '[MultipleDialogPage]';
 struct RefreshPage {
   @Provide(RefreshConstant.REFRESH_STATE_TAG) state:number=RefreshState.REFRESHING;
   private deviceDisplay:display.Display=GlobalContext.getContext().getObject("display") as display.Display;
-
   @Builder
   ContentBody(){
     Image($r("app.media.bg_content"))
       .width("100%")
       .height(626)
       .objectFit(ImageFit.Fill)
-
   }
 
   build(){
