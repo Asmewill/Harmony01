@@ -144,11 +144,9 @@ export default   class CommonConstants{
    * Date dialog select time.
    */
   static readonly SELECT_TIME: string = '1990-1-1';
-
   /**
    * refresh header item feature
    */
-
 
   /**
    * The host address of the server.
@@ -159,6 +157,8 @@ export default   class CommonConstants{
    * Get the news type.
    */
   static readonly GET_NEWS_TYPE: string = 'news/getNewsType';
+
+  static readonly GET_NEWS_LIST: string = 'news/getNewsList';
 
 
   static readonly TabBars_DEFAULT_NEWS_TYPES:Array<NewsTypeBean>=[
@@ -171,7 +171,5 @@ export default   class CommonConstants{
     { id: 6, name: '科技' },
     { id: 7, name: '财经' }
   ]
-
-
 
 }

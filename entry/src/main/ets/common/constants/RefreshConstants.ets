@@ -17,13 +17,32 @@ export class RefreshConstant{
 
 }
 
-export enum RefreshState{
-  IDLE=0,
-  DRAGGING=1,
-  DRAGGING_REFRESHABLE=2,
-  REFRESHING=3,
-  COMPLETE=4
+export enum PageState{
+  Loading=0,
+  Success=1,
+  Fail=2
 }
+
+
+
+export enum RefreshState{
+  //<HarmonyOS第一课>从网络获取数据
+  //新闻数据加载
+  DropDown = 0,
+  Release = 1,
+  Refreshing = 2,
+  Success = 3,
+  Fail = 4,
+  //<HarmonyOS第一课>给应用添加动画
+  // 自定义下拉刷新动画（ArkTS）
+  IDLE=5,
+  DRAGGING=6,
+  DRAGGING_REFRESHABLE=7,
+  REFRESHING=8,
+  COMPLETE=9,
+}
+
+
 
 
 export enum RefreshHeaderStyle{

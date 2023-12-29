@@ -35,6 +35,7 @@ struct MainPage {
       }
      // .tabBar("首页")
       .tabBar(this.tabBuilder("首页", 0, $r("app.media.home_selected"), $r("app.media.home_normal")))
+
       TabContent() {
         Setting()
       }

@@ -74,6 +74,18 @@ struct  IndexPage {
                 Logger.info(TAG, "IndexPage push error" + JSON.stringify(error))
               })
           })
+
+        Button("设置页面字体大小")
+          .fontSize(16)
+          .width("80%")
+          .margin({ top: 10 })
+          .onClick(() => {
+            router.pushUrl({ url: "pages/FontSizePage", params: { param: "MultipleDialog" } })
+              .catch((error: Error) => {
+                Logger.info(TAG, "IndexPage push error" + JSON.stringify(error))
+              })
+          })
+
       }.width("100%").backgroundColor($r('app.color.page_bg'))
     }
   }

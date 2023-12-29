@@ -32,8 +32,8 @@ export  function httpRequestGet(url:string):Promise<ResponseResult>{
     }
     return serverData;
 
-  }).catch(()=>{
-    serverData.msg = "网络请求失败，请稍后尝试！";
+  }).catch((error: Error)=>{
+    serverData.msg = "网络请求失败，请稍后尝试！"+error.message;
     return serverData;
   })
 }

@@ -6,6 +6,8 @@
     "pages/MainPage",
     "pages/MultipleDialogPage",
     "pages/RefreshPage",
-    "pages/NewsPage"
+    "pages/NewsPage",
+    "pages/FontSizePage",
+    "pages/SetFontSizePage"
   ]
 }
