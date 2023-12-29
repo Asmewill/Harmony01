@@ -63,7 +63,9 @@ struct MultipleDialogPage {
           inputImage:$r("app.media.ic_birthdate"),
           title:$r("app.string.title_birthdate"),
           content:$birthday,
-          onItemClick:()=>{
+          onItemClick:()=>{  //定义的函数有2个参数，但是此处也可以选择不接收这二个参数
+            //console.log("x:"+x+"---y："+y)
+            console.log("x:")
             CommonUtils.datePickerDialog((birthdate:string)=>{
                 this.birthday=birthdate;
             })
