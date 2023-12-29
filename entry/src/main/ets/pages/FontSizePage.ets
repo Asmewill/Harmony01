@@ -1,5 +1,7 @@
 import promptAction from '@ohos.promptAction'
 import router from '@ohos.router'
+import PreferencesUtil from '../common/database/PreferencesUtil'
+
 import Logger from '../common/utils/Logger'
 
 let TAG: string = "FontSizePage"
@@ -7,6 +9,8 @@ let TAG: string = "FontSizePage"
 @Entry
 @Component
 export default struct FontSizePage {
+  @State changeFontSize: number = 14;
+
   build() {
     Column() {
       Text("设置")
@@ -18,7 +22,7 @@ export default struct FontSizePage {
 
       Row() {
         Image($r("app.media.ic_display_and_brightness")).width(20).height(20).margin({ left: 12 })
-        Text("显示和亮度").margin({ left: 10 }).fontColor(Color.Black)
+        Text("显示和亮度").margin({ left: 10 }).fontColor(Color.Black).fontSize(this.changeFontSize)
       }
       .width("94%")
       .backgroundColor(Color.White)
@@ -31,7 +35,7 @@ export default struct FontSizePage {
 
       Row() {
         Image($r("app.media.ic_voice")).width(20).height(20).margin({ left: 12 })
-        Text("声音").margin({ left: 10 }).fontColor(Color.Black)
+        Text("声音").margin({ left: 10 }).fontColor(Color.Black).fontSize(this.changeFontSize)
       }
       .width("94%")
       .backgroundColor(Color.White)
@@ -45,7 +49,7 @@ export default struct FontSizePage {
       Column() {
         Row() {
           Image($r("app.media.ic_app_management")).width(20).height(20).margin({ left: 12 })
-          Text("应用管理").margin({ left: 10 }).fontColor(Color.Black)
+          Text("应用管理").margin({ left: 10 }).fontColor(Color.Black).fontSize(this.changeFontSize)
         }
         .width("100%")
         .backgroundColor(Color.White)
@@ -57,7 +61,7 @@ export default struct FontSizePage {
 
         Row() {
           Image($r("app.media.ic_storage")).width(20).height(20).margin({ left: 12 })
-          Text("存储").margin({ left: 10 }).fontColor(Color.Black)
+          Text("存储").margin({ left: 10 }).fontColor(Color.Black).fontSize(this.changeFontSize)
         }.width("100%").backgroundColor(Color.White).height(48)
         .onClick(() => {
           promptAction.showToast({ message: "存储" })
@@ -65,7 +69,7 @@ export default struct FontSizePage {
 
         Row() {
           Image($r("app.media.ic_privacy")).width(20).height(20).margin({ left: 12 })
-          Text("隐私").margin({ left: 10 }).fontColor(Color.Black)
+          Text("隐私").margin({ left: 10 }).fontColor(Color.Black).fontSize(this.changeFontSize)
         }.width("100%").backgroundColor(Color.White).height(48)
         .onClick(() => {
           promptAction.showToast({ message: "隐私" })
@@ -73,7 +77,7 @@ export default struct FontSizePage {
 
         Row() {
           Image($r("app.media.ic_setting_the_font_size")).width(20).height(20).margin({ left: 12 })
-          Text("设置字体大小").margin({ left: 10 }).fontColor(Color.Black)
+          Text("设置字体大小").margin({ left: 10 }).fontColor(Color.Black).fontSize(this.changeFontSize)
         }
         .width("100%")
         .backgroundColor(Color.White)
@@ -105,23 +109,29 @@ export default struct FontSizePage {
   //2-build()
 
   //3-onPageShow
-  onPageShow(){
-    Logger.info(TAG, "3-onPageShow")
+  onPageShow() {
+
+    PreferencesUtil.getChangeFontSize().then((value) => {
+      this.changeFontSize = value;
+      Logger.info(TAG, "获取字体大小"+this.changeFontSize)
+    }).catch((error:Error)=>{
+      Logger.info(TAG,"error:"+JSON.stringify(error))
+    })
+
   }
 
   //4-onBackPress
-  onBackPress(){
+  onBackPress() {
     Logger.info(TAG, "4-onBackPress")
   }
 
   //5-onPageHide()
-  onPageHide(){
+  onPageHide() {
     Logger.info(TAG, "5-onPageHide")
   }
 
   //6-aboutToDisappear()
-  aboutToDisappear(){
+  aboutToDisappear() {
     Logger.info(TAG, "6-aboutToDisappear")
   }
-
 }

@@ -4,11 +4,15 @@ import window from '@ohos.window';
 import display from '@ohos.display';
 import { GlobalContext } from '../common/utils/GlobalContext';
 
+import PreferencesUtil from '../common/database/PreferencesUtil';
+
 export default class EntryAbility extends UIAbility {
 
 
   onCreate(want, launchParam) {
     hilog.info(0x0000, 'testTag', '%{public}s', 'Ability onCreate');
+    //创建PreferencesUtil
+    PreferencesUtil.createFontPreferences(this.context)
 
   }
 
