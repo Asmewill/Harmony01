@@ -51,7 +51,22 @@ class Ts01{
     }else{
       return false;
     }
+    for(let i=0; i<10; i++){
+      console.log(i.toString());
+    }
   }
+
+
+
+
+
+  // 所有的对象都被当作 true。
+  // 当且仅当字符串为空时，该字符串被当作 false。
+  // null 和 undefined 被当作 false。
+  // 当且仅当数字为零（0）时，该数字被当作 false。
+  // if(event){
+  //
+  // }
 
 
 }
