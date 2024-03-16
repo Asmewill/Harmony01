@@ -2,6 +2,7 @@
 import hilog from '@ohos.hilog';
 
 
+
 export class Logger{
   private domain:number;
   private prefix:string;

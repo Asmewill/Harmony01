@@ -1,11 +1,11 @@
 
-
+@Preview
 @Entry
 @Component
 struct FlexPage{
 
 
-
+  //Flex 弹性布局
   build(){
     Scroll(){
       Column(){
@@ -100,7 +100,7 @@ struct FlexPage{
 
         Text("8.主轴对齐方式：FlexAlign.Start（默认值）/Center/End/SpaceBetween/SpaceAround/SapceEvenly：" +
         "子组件在主轴方向起始端对齐， 第一个子组件与父元素边沿对齐，其他元素与前一个元素对齐。")
-        Flex({ justifyContent: FlexAlign.Start }) {
+        Flex({direction:FlexDirection.Row, justifyContent: FlexAlign.End }) {
           Text('1').width('20%').height(50).backgroundColor(0xF5DEB3)
           Text('2').width('20%').height(50).backgroundColor(0xD2B48C)
           Text('3').width('20%').height(50).backgroundColor(0xF5DEB3)
@@ -120,8 +120,6 @@ struct FlexPage{
         .size({ width: '90%', height: 80 })
         .padding(10)
         .backgroundColor(0xAFEEEE)
-
-
 
       }
     }

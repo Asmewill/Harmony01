@@ -12,5 +12,4 @@ export default class ClassifyModel{
     this.posX=posX;
     this.delay=delay;
   }
-
 }

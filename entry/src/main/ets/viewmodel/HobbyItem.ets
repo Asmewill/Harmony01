@@ -4,9 +4,12 @@
 export default class HobbyItem{
 
 
-  label?:string;
+  label:string;
 
-  isChecked?:boolean;
+  isChecked:boolean=false;
+
+
+
 
 
 }

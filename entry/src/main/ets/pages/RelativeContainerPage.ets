@@ -1,3 +1,4 @@
+@Preview
 @Entry
 @Component
 struct RelativeContainerPage {
@@ -7,17 +8,13 @@ struct RelativeContainerPage {
       " 2.在竖直方向上，可以设置top、center、bottom的锚点 \n" +
       " 3.在水平方向上，对齐位置可以设置为HorizontalAlign.Start、HorizontalAlign.Center、HorizontalAlign.End \n" +
       "4.在竖直方向上，对齐位置可以设置为VerticalAlign.Top、VerticalAlign.Center、VerticalAlign.Bottom。").padding(10)
-
+      //anchor 锚点   align:VerticalAlign.Top /Center/Bottom
+      // align:HorizontalAlign.Start/Middle/End
       RelativeContainer() {
         Text("AAA").fontColor('#FF3333').alignRules({
-          top: { anchor: "__container__", align: VerticalAlign.Top } ,
+          top: { anchor: "__container__", align: VerticalAlign.Top },
           left: { anchor: "__container__",align:HorizontalAlign.Start}}
         ).id("tv_1")
-
-        Text("BBB").fontColor('#FF3333').alignRules({
-          top: { anchor: "__container__", align: VerticalAlign.Top } ,
-          middle: { anchor: "__container__",align:HorizontalAlign.Center}}
-        ).id("tv_2")
 
         Text("BBB").fontColor('#FF3333').alignRules({
           top: { anchor: "__container__", align: VerticalAlign.Top } ,
@@ -28,7 +25,6 @@ struct RelativeContainerPage {
           top: { anchor: "__container__", align: VerticalAlign.Top } ,
           right: { anchor: "__container__",align:HorizontalAlign.End}}
         ).id("tv_3")
-
 
         Text("DDD").fontColor('#FF3333').alignRules({
           center: { anchor: "__container__",align: VerticalAlign.Center } ,
@@ -78,7 +74,7 @@ struct RelativeContainerPage {
         }
         .height(100).width(100)
         .alignRules({
-          top: { anchor: 'row1', align: VerticalAlign.Bottom }, //以row1组件为锚点，竖直方向低端对齐
+          top: { anchor: 'row1', align: VerticalAlign.Bottom }, //以row1组件为锚点，竖直方向底部对齐
           left: { anchor: 'row1', align: HorizontalAlign.Start } //以row1组件为锚点，水平方向开头对齐
         })
         .id('row2') //设置锚点为row2
@@ -88,7 +84,8 @@ struct RelativeContainerPage {
           .height(100)
           .backgroundColor('#FFCC00')
           .alignRules({
-            top: { anchor: 'row2', align: VerticalAlign.Top }
+            top: { anchor: 'row2', align: VerticalAlign.Top },
+            right: {anchor:'row2',align:HorizontalAlign.Start}
           })
           .id('row3') //设置锚点为row3
 
@@ -111,8 +108,7 @@ struct RelativeContainerPage {
             middle: { anchor: 'row2', align: HorizontalAlign.Center }
           })
           .id('row5') //设置锚点为row5
-      }
-      .width(300).height(300).border({ width: 2, color: '#6699FF' })
+      }.width(300).height(300).border({ width: 2, color: '#6699FF' })
 
     }
 

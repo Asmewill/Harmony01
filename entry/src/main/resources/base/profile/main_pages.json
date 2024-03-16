@@ -8,6 +8,15 @@
     "pages/RefreshPage",
     "pages/NewsPage",
     "pages/FontSizePage",
-    "pages/SetFontSizePage"
+    "pages/SetFontSizePage",
+    "pages/ClockPage",
+    "pages/ClockSettingPage",
+    "pages/RelativeContainerPage",
+    "pages/StackPage",
+    "pages/StackPage1",
+    "pages/FlexPage",
+    "pages/openEye/SplashPage",
+    "pages/openEye/MainPage",
+    "pages/openEye/commonDetail/DetailPage"
   ]
 }

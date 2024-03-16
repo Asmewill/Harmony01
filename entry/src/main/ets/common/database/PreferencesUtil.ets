@@ -1,11 +1,12 @@
 
 import preferences from '@ohos.data.preferences';
+import AlarmItem from '../../viewmodel/AlarmItem';
 
 import { GlobalContext } from '../utils/GlobalContext';
 
 const KEY_APP_FONT_SIZE="appFontSize";
 const PREFERENCES_NAME="myPreferences"
-
+const ALARM_LIST_DATA="alarm_list_data";
 
 export class PreferencesUtil{
 
@@ -34,7 +35,6 @@ export class PreferencesUtil{
     })
   }
 
-
   async  getChangeFontSize(){
     let fontSize:number=0;
     let preferencesFunction:Function=GlobalContext.getContext().getObject("getFontPreferences") as Function;
@@ -42,6 +42,7 @@ export class PreferencesUtil{
     fontSize= await (await preferencesFunction()).get(KEY_APP_FONT_SIZE,fontSize);
     return fontSize;
   }
+
 
 
 }

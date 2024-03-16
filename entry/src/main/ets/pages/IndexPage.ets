@@ -3,7 +3,7 @@ import CommonConstants from '../common/constants/CommonConstants'
 import Logger from '../common/utils/Logger';
 
 const TAG = '[IndexPage]';
-
+@Preview
 @Entry
 @Component
 struct  IndexPage {
@@ -24,8 +24,7 @@ struct  IndexPage {
               params: {
                 src: "Index页面传来的数据"
               }
-            })
-              .catch((error: Error) => {
+            }).catch((error: Error) => {
                 Logger.info(TAG, 'IndexPage push error' + JSON.stringify(error))
               });
           })
@@ -84,6 +83,69 @@ struct  IndexPage {
               .catch((error: Error) => {
                 Logger.info(TAG, "IndexPage push error" + JSON.stringify(error))
               })
+          })
+
+        Button("闹钟")
+          .fontSize(16)
+          .width("80%")
+          .margin({ top: 10 })
+          .onClick(() => {
+            router.pushUrl({ url: "pages/ClockPage", params: { param: "MultipleDialog" } })
+              .catch((error: Error) => {
+                Logger.info(TAG, "IndexPage push error" + JSON.stringify(error))
+              })
+          })
+
+        Button("RelativeContainer布局")
+          .fontSize(16)
+          .width("80%")
+          .margin({ top: 10 })
+          .onClick(() => {
+            router.pushUrl({ url: "pages/RelativeContainerPage", params: { param: "MultipleDialog" } })
+              .catch((error: Error) => {
+                Logger.info(TAG, "IndexPage push error" + JSON.stringify(error))
+              })
+          })
+
+        Button("Stack布局")
+          .fontSize(16)
+          .width("80%")
+          .margin({ top: 10 })
+          .onClick(() => {
+            router.pushUrl({ url: "pages/StackPage", params: { param: "MultipleDialog" } })
+              .catch((error: Error) => {
+                Logger.info(TAG, "IndexPage push error" + JSON.stringify(error))
+              })
+          })
+
+        Button("Stack1布局")
+          .fontSize(16)
+          .width("80%")
+          .margin({ top: 10 })
+          .onClick(() => {
+            router.pushUrl({ url: "pages/StackPage1", params: { param: "MultipleDialog" } })
+              .catch((error: Error) => {
+                Logger.info(TAG, "IndexPage push error" + JSON.stringify(error))
+              })
+          })
+
+        Button("Flex布局")
+          .fontSize(16)
+          .width("80%")
+          .margin({ top: 10 })
+          .onClick(() => {
+            router.pushUrl({ url: "pages/FlexPage", params: { param: "MultipleDialog" } })
+              .catch((error: Error) => {
+                Logger.info(TAG, "IndexPage push error" + JSON.stringify(error))
+              })
+          })
+
+        Button("HarmonyOpenEye")
+          .fontSize(16)
+          .width("80%")
+          .margin({ top: 10 })
+          .onClick(() => {
+            router.pushUrl({ url: "pages/openEye/SplashPage"})
           })
 
       }.width("100%").backgroundColor($r('app.color.page_bg'))

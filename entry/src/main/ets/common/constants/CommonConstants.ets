@@ -1,6 +1,7 @@
 
 import display from '@ohos.display';
 import ClassifyModel from '../../viewmodel/AnimationMode';
+import DayDataItem from '../../viewmodel/DayDataItem';
 import { NewsTypeBean } from '../../viewmodel/NewsViewModel';
 import { GlobalContext } from '../utils/GlobalContext';
 
@@ -171,5 +172,57 @@ export default   class CommonConstants{
     { id: 6, name: '科技' },
     { id: 7, name: '财经' }
   ]
+
+  /**
+   * Hour pointer image url.
+   */
+  static readonly HOUR_POINTER_IMAGE_URL: string = '../../../resources/base/media/ic_hour_pointer.png';
+  /**
+   * Minute pointer image url.
+   */
+  static readonly MINUTE_POINTER_IMAGE_URL: string = '../../../resources/base/media/ic_minute_pointer.png';
+  /**
+   * Second pointer image url.
+   */
+  static readonly SECOND_POINTER_IMAGE_URL: string = '../../../resources/base/media/ic_second_pointer.png';
+  /**
+   * Clock pan image url.
+   */
+  static readonly CLOCK_PAN_IMAGE_URL: string = '../../../resources/base/media/ic_clock_pan.png';
+
+  //此处的readonly修饰数组表示 不能在重新实例化DAY_DATA，但是可以修改内部元素的值
+  static readonly DAY_DATA: DayDataItem[] = [
+    { timeType: 0, delSelect: 0, data: ['上午', '下午'] } as DayDataItem,
+    { timeType: 1, delSelect: 0, data:
+    [
+      '01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12'
+    ]
+    } as DayDataItem,
+    { timeType: 2, delSelect: 0, data:
+    [
+      '01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12',
+      '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23', '24',
+      '25', '26', '27', '28', '29', '30', '31', '32', '33', '34', '35', '36',
+      '37', '38', '39', '40', '41', '42', '43', '44', '45', '46', '47', '48',
+      '49', '50', '51', '52', '53', '54', '55', '56', '57', '58', '59', '00',
+    ]
+    } as DayDataItem
+  ];
+  /**
+   * week day data.
+   */
+  //此处的readonly修饰数组表示 不能在重新实例化DAY_DATA，但是可以修改内部元素的值
+  static readonly WEEKDAY_DATA: number[] = [1, 2, 3, 4, 5, 6, 7];
+  /**
+   * ring duration list data.
+   */
+  //此处的readonly修饰数组表示 不能在重新实例化DAY_DATA，但是可以修改内部元素的值
+  static readonly RING_DURATION: number[] = [1, 5, 10, 15, 20, 30];
+
+  static readonly ALARM_KEY = 'alarmData';
+
+  static readonly PREFERENCE_ID = 'storageId';
+
+  static readonly DEFAULT_PROVIDER_KEY: string = 'alarmItemProvide';
 
 }
