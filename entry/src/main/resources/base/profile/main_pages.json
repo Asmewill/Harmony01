@@ -17,6 +17,7 @@
     "pages/FlexPage",
     "pages/openEye/SplashPage",
     "pages/openEye/MainPage",
-    "pages/openEye/commonDetail/DetailPage"
+    "pages/openEye/commonDetail/DetailPage",
+    "pages/openEye/categoryDetail/CategoryDetailPage"
   ]
 }

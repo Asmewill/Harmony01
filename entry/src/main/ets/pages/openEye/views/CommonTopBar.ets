@@ -34,15 +34,12 @@ export struct CommonTopBar {
               this.onBackClick?.();
             }
           })
-
         }
         Text(this.title).alignRules({
           middle: { anchor: "__container__", align: HorizontalAlign.Center }, //水平方向
           center: { anchor: "__container__", align: VerticalAlign.Center }, //竖直方向上
         }).id("tv_title").fontColor(Color.White)
-
-
-      }.width("100%").height(50).backgroundColor("#d81e06")
+      }.width("100%").height(50).backgroundColor("#d81e06").opacity(this.alpha)
 
     }.height(90)
 

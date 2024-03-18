@@ -1,6 +1,8 @@
 import { ViewStateConstant } from '../../../../common/constants/ViewStateConstant';
 import { ItemList } from '../../model/FocusModel';
 import { ItemChildList } from '../../model/ItemChildList';
+import { RoutePath } from '../../route/RoutePath';
+import Router from '../../route/Router';
 import ToastUtils from '../../utils/ToastUtils';
 import showToast from '../../utils/ToastUtils';
 
@@ -52,21 +54,21 @@ export struct FocusPage {
     } }) {
       Refresh({ refreshing: this.isRefreshing }) {
         List() {
-          ForEach(this.valueList, (item: ItemList, index: number) => {
+          ForEach(this.valueList, (item0: ItemList, index: number) => {
             ListItem() {
               Column() {
                 Row() {
-                  Image(`${item.data.header.icon}`)
+                  Image(`${item0.data.header.icon}`)
                     .width(50)
                     .height(50).borderRadius(25)
 
                   Column() {
-                    Text(`${item.data.header.title}`)
+                    Text(`${item0.data.header.title}`)
                       .fontSize(16)
                       .fontColor("#333333")
                       .maxLines(1)
                       .textOverflow({ overflow: TextOverflow.Ellipsis })
-                    Text(`${item.data.header.description}`)
+                    Text(`${item0.data.header.description}`)
                       .fontSize(14)
                       .fontColor("#999999")
                       .maxLines(1)
@@ -81,7 +83,7 @@ export struct FocusPage {
                 //   (): RelativeContainerAttribute;
                 // }
                 List({ space: 10 }) {
-                  ForEach(item.data.itemList, (item: ItemChildList, index: number) => {
+                  ForEach(item0.data.itemList, (item: ItemChildList, index: number) => {
                     ListItem() {
                       RelativeContainer() {
                         Image(`${item.data.cover.feed}`)
@@ -108,7 +110,9 @@ export struct FocusPage {
                           .textAlign(TextAlign.Center)
 
                       }.width("45%").height(110)
-                    }
+                    }.onClick(()=>{
+                        Router.push(RoutePath.DetailPage, { playId: item?.data?.id, playUrl: item?.data?.playUrl})
+                    })
                   })
 
                 }.width("100%").height(120).listDirection(Axis.Horizontal)

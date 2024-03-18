@@ -1,5 +1,6 @@
 export class HomeModel {
     issueList: IssueList[];
+    itemList:ItemList[];
     newestIssueType: string;
     nextPageUrl: string;
     nextPublishTime: number;

@@ -1,6 +1,8 @@
+import CommonConstants from '../../../common/constants/CommonConstants';
 import { DetailModel } from '../model/DetailModel';
 import { FocusModel } from '../model/FocusModel';
 import { HomeModel } from '../model/HomeModel';
+import { CategoryModel } from '../viewmodel/CategoryModel';
 import { axiosClient } from './AxiosRequest';
 
 
@@ -29,7 +31,7 @@ export function getRelationList(id: number) {
     {
       url: baseUrl + "api/v4/video/related",
       params: { "id": id },
-      showLoading:false
+      showLoading: false
     }
   )
 }
@@ -37,11 +39,37 @@ export function getRelationList(id: number) {
  * 获取关注接口
  */
 export function getFocusData(pageIndex: number = 0): Promise<FocusModel> {
-
   return axiosClient.get<FocusModel>(
     {
-      url:baseUrl+"api/v4/tabs/follow",
-      params:{"start":pageIndex},
+      url: baseUrl + "api/v4/tabs/follow",
+      params: { "start": pageIndex },
     }
   )
 }
+/***
+ * 获取分类接口
+ */
+export function getCategories() {
+  return axiosClient.get<CategoryModel[]>({
+    url: baseUrl + "api/v4/categories",
+  })
+}
+
+/***
+ * 获取分类详情接口
+ */
+export function getCategoryDetailList(id: number, start: number) {
+  return axiosClient.get<HomeModel>({
+    url: baseUrl + "api/v4/categories/videoList",
+    params: {
+      "id": id,
+      "start": start,
+      "udid": CommonConstants.UUID,
+      deviceModel: CommonConstants.DEVICE_NUM
+    }
+  })
+
+
+}
+
+
