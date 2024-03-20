@@ -11,7 +11,6 @@ export struct VideoComponent {
   build() {
     //Stack默认元素是居中显示
     Stack() {
-
       Video({
         src: this.playUrl,
         controller: this.controller

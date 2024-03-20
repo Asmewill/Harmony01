@@ -18,6 +18,7 @@
     "pages/openEye/SplashPage",
     "pages/openEye/MainPage",
     "pages/openEye/commonDetail/DetailPage",
-    "pages/openEye/categoryDetail/CategoryDetailPage"
+    "pages/openEye/categoryDetail/CategoryDetailPage",
+    "pages/openEye/topicDetail/TopicDetailPage"
   ]
 }

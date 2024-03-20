@@ -1,6 +1,6 @@
 @Component
 export struct RefreshFooter {
-   @Prop showFooter:boolean;
+   @Prop showFooter:boolean; //必须要使用Prop接收才会有效果
   build() {
     Row() {
       Text("数据加载中，请稍后").fontColor("#333332").fontSize(15)

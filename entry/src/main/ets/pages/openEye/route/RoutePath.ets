@@ -7,5 +7,5 @@ export class RoutePath{
   static readonly  MainPage="pages/openEye/MainPage"
   static readonly  DetailPage="pages/openEye/commonDetail/DetailPage"
   static readonly  CategoryDetailPage="pages/openEye/categoryDetail/CategoryDetailPage"
-
+  static readonly  TopicDetailPage="pages/openEye/topicDetail/TopicDetailPage"
 }

@@ -44,7 +44,7 @@ export struct CategoryPage {
               Text(`${item.name}`).fontColor(Color.White).fontSize(12)
             }.width("100%").height(150).borderRadius(10)
           }.padding(10).onClick(()=>{
-            Router.push(RoutePath.CategoryDetailPage,{detailId:item.id})
+            Router.push(RoutePath.CategoryDetailPage,{detailId:item.id,headerImage:item.bgPicture,name:item.name})
           })
         })
       }.columnsTemplate("1fr 1fr") //不设置rowsTemplate 可以自动

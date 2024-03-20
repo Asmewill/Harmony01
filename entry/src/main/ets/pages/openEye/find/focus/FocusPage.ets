@@ -114,7 +114,6 @@ export struct FocusPage {
                         Router.push(RoutePath.DetailPage, { playId: item?.data?.id, playUrl: item?.data?.playUrl})
                     })
                   })
-
                 }.width("100%").height(120).listDirection(Axis.Horizontal)
 
               }.padding({ left: 10, right: 10 })
@@ -127,7 +126,9 @@ export struct FocusPage {
         .onReachEnd(() => {
           this.showLoadMore=true
           this.pageIndex++;
-          this.loadNet();
+          setTimeout(()=>{
+            this.loadNet();
+          },1000)
         }).padding({bottom:20})
       }.width("100%").height("100%").onRefreshing(() => {
         this.isRefreshing = true;

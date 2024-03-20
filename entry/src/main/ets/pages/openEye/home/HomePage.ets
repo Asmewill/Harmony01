@@ -70,7 +70,9 @@ export struct HomePage {
             }.listDirection(Axis.Vertical)
             .onReachEnd(() => {
               this.showLoadMore = true;
-              this.loadNet();
+              setTimeout(()=>{
+                this.loadNet();
+              },1000)
             })
           }.onRefreshing(() => {
             HomeViewModel.revertDate()
