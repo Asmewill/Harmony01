@@ -1,6 +1,6 @@
 
 import defaultAppManager from '@ohos.bundle.defaultAppManager';
-import { BaseViewModel } from '../pages/openEye/viewmodel/BaseViewModel';
+import { BaseViewModel } from './BaseViewModel';
 
 
 export class FindViewModel extends BaseViewModel{

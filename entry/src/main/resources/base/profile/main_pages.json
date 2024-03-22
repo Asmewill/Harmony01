@@ -19,6 +19,10 @@
     "pages/openEye/MainPage",
     "pages/openEye/commonDetail/DetailPage",
     "pages/openEye/categoryDetail/CategoryDetailPage",
-    "pages/openEye/topicDetail/TopicDetailPage"
+    "pages/openEye/topicDetail/TopicDetailPage",
+    "pages/openEye/container/ContainerPage",
+    "pages/openEye/test/TestHorizontalPage1",
+    "pages/openEye/test/TestHorizontalPage2",
+    "pages/openEye/test/CoordinatePage"
   ]
 }

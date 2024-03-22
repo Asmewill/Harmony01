@@ -15,7 +15,7 @@ import { StateComponent } from '../../views/StateComponent';
 export struct FocusPage {
   // @Consume @Watch("onHomeTabSelected") homeTabSelected: number;
   // @Consume @Watch("onFindTabSelected") currentIndex: number;
-  @State viewState: string = ViewStateConstant.VIEW_STATE_SUCCESS;
+  @State viewState: string = ViewStateConstant.VIEW_STATE_LOADING;
   @State isRefreshing: boolean = false;
   tempList: string[] = ["1", "2", "3", "4", "5", "6", "7", "8", "9"];
   @State valueList: ItemList[] = [];
@@ -31,6 +31,9 @@ export struct FocusPage {
   //   LogUtils.debug("Focus-onFindTabSelectedIndex>>>", `FindIndex:${this.currentIndex}>>>HomeIndex${this.homeTabSelected}`)
   // }
   aboutToAppear() {
+    FocusViewModel.observeState((state)=>{
+      this.viewState=state;
+    })
     this.loadNet();
   }
 

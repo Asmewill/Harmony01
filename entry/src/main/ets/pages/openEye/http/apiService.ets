@@ -2,6 +2,7 @@ import CommonConstants from '../../../common/constants/CommonConstants';
 import { DetailModel } from '../model/DetailModel';
 import { FocusModel } from '../model/FocusModel';
 import { HomeModel } from '../model/HomeModel';
+import { RankModel } from '../model/RankModel';
 import { TopDetailModel } from '../model/TopDetailModel';
 import { TopicModel } from '../model/TopicModel';
 import { CategoryModel } from '../viewmodel/CategoryModel';
@@ -84,6 +85,13 @@ export function getTopicData(start: number = 0): Promise<TopicModel> {
 export function getTopicDetailList(id: number): Promise<TopDetailModel> {
   return axiosClient.get<TopDetailModel>({
     url: baseUrl + "api/v3/lightTopics/internal/" + id,
+  })
+}
+
+export function getRankList(rankType:string):Promise<RankModel>{
+  return axiosClient.get<RankModel>({
+    url: baseUrl + "api/v4/rankList/videos",
+    params:{"strategy":rankType}
   })
 }
 

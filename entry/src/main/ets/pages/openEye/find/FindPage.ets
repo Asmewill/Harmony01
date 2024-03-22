@@ -1,4 +1,4 @@
-import FindViewModel from '../../../viewmodel/FindViewModel'
+import FindViewModel from '../viewmodel/FindViewModel'
 import { CommonTopBar } from '../views/CommonTopBar'
 import { CategoryPage } from './category/CategoryPage'
 import { FocusPage } from './focus/FocusPage'

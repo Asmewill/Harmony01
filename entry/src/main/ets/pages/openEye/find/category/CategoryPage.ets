@@ -11,7 +11,7 @@ import { StateComponent } from '../../views/StateComponent'
 @Preview
 @Component
 export struct CategoryPage {
-  @State viewState: string = ViewStateConstant.VIEW_STATE_SUCCESS;
+  @State viewState: string = ViewStateConstant.VIEW_STATE_LOADING;
   @State categoryList: CategoryModel[] = [];
   @State dataSource: BaseDataSourceWrapper<CategoryModel> = new BaseDataSourceWrapper<CategoryModel>([])
 

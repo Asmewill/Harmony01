@@ -10,7 +10,7 @@ import { StateComponent } from '../../views/StateComponent'
 
 @Component
 export struct TopicPage {
-  @State viewState: string = ViewStateConstant.VIEW_STATE_SUCCESS;
+  @State viewState: string = ViewStateConstant.VIEW_STATE_LOADING;
   @State isRefreshing: boolean = false;
   @State dataList: ItemList[] = [];
   pageIndex: number = 0;
@@ -18,6 +18,10 @@ export struct TopicPage {
   @State brief:string=""
 
   aboutToAppear() {
+    TopViewModel.observeState((state)=>{
+      this.viewState=state;
+
+    })
     this.loadNet()
   }
 
