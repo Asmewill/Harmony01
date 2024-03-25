@@ -34,7 +34,10 @@ export struct CategoryPage {
     CategoryViewModel.observeState((state) => {
       this.viewState = state
     })
-   // this.loadNet()
+    //ContainerPage页面 hasInit=true
+    if(this.hasInit){
+      this.loadNet();
+    }
   }
 
   loadNet() {

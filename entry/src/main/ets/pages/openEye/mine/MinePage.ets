@@ -45,7 +45,7 @@ export struct MinePage {
       .justifyContent(FlexAlign.Start)
       .padding({ left: 10 })
       .onClick(() => {
-        Router.push(RoutePath.ContainerPage, { containerType: "category", title: "分类" })
+        Router.push(RoutePath.ContainerPage, { containerType: "focus", title: "关注" })
       })
 
       Divider().strokeWidth(1).color(Color.Grey).opacity(0.1)

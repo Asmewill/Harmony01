@@ -7,6 +7,14 @@ import { CommonTopBar } from '../views/CommonTopBar'
 @Entry
 @Component
 export struct ContainerPage {
+
+  //子元素 FocusPage   TopicPage CategoryPage 使用了findCurrentIndex ，homeTabSelected
+  // 所以必须初始化
+  //否则就会报错：//Error message: FocusPage: missing @Provide property with name homeTabSelected.
+  //   // Fail to resolve @Consume(homeTabSelected).
+  @Provide findCurrentIndex: number = -1
+  @Provide homeTabSelected: number = -1
+
   @State containerType: string = "focus"
   @State title: string = ""
   aboutToAppear(){
@@ -21,11 +29,11 @@ export struct ContainerPage {
       } })
       Stack(){ //居中
         if (this.containerType == "focus") {
-          FocusPage()
+          FocusPage({hasInit:true}) //
         } else if (this.containerType == "topic") {
-          TopicPage()
+          TopicPage({hasInit:true})
         } else if (this.containerType == "category") {
-          CategoryPage()
+          CategoryPage({hasInit:true})
         } else {
           Text("页面丢失了~")
         }

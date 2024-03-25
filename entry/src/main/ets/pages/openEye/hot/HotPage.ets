@@ -37,7 +37,6 @@ export struct HotPage {
       }
     }
   }
-
   @Builder
   TabBuilder(index: number, name: string) {
     Column() {
