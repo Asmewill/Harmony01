@@ -4,8 +4,12 @@ import { RankPage } from './Rank/RankPage'
 
 @Component
 export struct HotPage {
-  @State currentIndex: number = 0;
+  @Provide hotCurrentIndex: number = 0;
+
+
   controller: TabsController = new TabsController();
+
+
 
   build() {
     Column() {
@@ -14,21 +18,21 @@ export struct HotPage {
       Stack({ alignContent: Alignment.TopStart }) {
         Tabs({ barPosition: BarPosition.Start, controller: this.controller }) {
           TabContent() {
-            RankPage({ rankType: HotViewModel.tabTitle[0].rankType })
+            RankPage({ rankType: HotViewModel.tabTitle[0].rankType,positionIndex:0})
           }.tabBar(this.TabBuilder(HotViewModel.tabTitle[0].index, HotViewModel.tabTitle[0].title))
 
           TabContent() {
-            RankPage({ rankType: HotViewModel.tabTitle[1].rankType })
+            RankPage({ rankType: HotViewModel.tabTitle[1].rankType,positionIndex:1})
           }.tabBar(this.TabBuilder(HotViewModel.tabTitle[1].index, HotViewModel.tabTitle[1].title))
 
           TabContent() {
-            RankPage({ rankType: HotViewModel.tabTitle[2].rankType })
+            RankPage({ rankType: HotViewModel.tabTitle[2].rankType,positionIndex:2})
           }.tabBar(this.TabBuilder(HotViewModel.tabTitle[2].index, HotViewModel.tabTitle[2].title))
         }
         .barHeight(50) //barHeight高度一定要和TabBuilder中控件的高度一致
         .barMode(BarMode.Fixed)
         .onChange((index => {
-          this.currentIndex = index;
+          this.hotCurrentIndex = index;
         }))
       }
     }
@@ -48,7 +52,7 @@ export struct HotPage {
         .strokeWidth(4)
         .color("#ffffff")
         .width(50)
-        .visibility(this.currentIndex == index ? Visibility.Visible : Visibility.Hidden)
+        .visibility(this.hotCurrentIndex == index ? Visibility.Visible : Visibility.Hidden)
         .lineCap(LineCapStyle.Round)
         .margin({ bottom: 0.5 })
     }

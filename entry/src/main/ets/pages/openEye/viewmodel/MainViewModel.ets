@@ -3,7 +3,6 @@
 
 export class MainViewModel{
 
-
   tabTitle=[
     {
       index:0,
@@ -32,5 +31,4 @@ export class MainViewModel{
   ]
 }
 
-let mainMainViewModel=new MainViewModel();
-export default  mainMainViewModel as MainViewModel;
+export default  new MainViewModel()

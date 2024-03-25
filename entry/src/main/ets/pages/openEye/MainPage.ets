@@ -7,11 +7,12 @@ import { HomePage } from './home/HomePage';
 import { HotPage } from './hot/HotPage';
 import { MinePage } from './mine/MinePage';
 import { TabItem } from './model/TabItem';
-import mainMainViewModel from './viewmodel/MainViewModel';
+import  MainViewModel from './viewmodel/MainViewModel';
 
 @Entry
 @Component
 export struct MainPage {
+
   @State selectedIndex: number = 0;
   @State loadingShow:boolean=false;
   @Provide homeTabSelected:number=0; //Provide  提供初始值  配合Consume  Watch 一起使用
@@ -50,19 +51,19 @@ export struct MainPage {
       }) {
         TabContent() {
           HomePage()
-        }.tabBar(this.TabBottom(mainMainViewModel.tabTitle[0], 0))
+        }.tabBar(this.TabBottom(MainViewModel.tabTitle[0], 0))
 
         TabContent() {
           FindPage()
-        }.tabBar(this.TabBottom(mainMainViewModel.tabTitle[1], 1))
+        }.tabBar(this.TabBottom(MainViewModel.tabTitle[1], 1))
 
         TabContent() {
           HotPage()
-        }.tabBar(this.TabBottom(mainMainViewModel.tabTitle[2], 2))
+        }.tabBar(this.TabBottom(MainViewModel.tabTitle[2], 2))
 
         TabContent() {
           MinePage()
-        }.tabBar(this.TabBottom(mainMainViewModel.tabTitle[3], 3))
+        }.tabBar(this.TabBottom(MainViewModel.tabTitle[3], 3))
       }
       .barWidth("100%")
       .barHeight(56)

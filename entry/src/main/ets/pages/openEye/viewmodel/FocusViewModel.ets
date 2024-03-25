@@ -7,7 +7,7 @@ export class FocusViewModel extends BaseViewModel {
 
 
  async  getFocusData(pageIndex: number, callBack?: ResultCallback) {
-   await  this.httpRequest().promise(getFocusData(pageIndex), true).then((focusModel: FocusModel) => {
+   await  this.httpRequest().promise(getFocusData(pageIndex), pageIndex==0?true:false).then((focusModel: FocusModel) => {
       let valueList: ItemList[] = focusModel.itemList.filter((item: ItemList) => item.type == "videoCollectionWithBrief");
       callBack?.(valueList);
     })

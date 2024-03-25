@@ -1,3 +1,4 @@
+import { LogUtils } from '../utils/LogUtils'
 import FindViewModel from '../viewmodel/FindViewModel'
 import { CommonTopBar } from '../views/CommonTopBar'
 import { CategoryPage } from './category/CategoryPage'
@@ -6,9 +7,15 @@ import { TopicPage } from './topic/TopicPage'
 
 @Component
 export struct FindPage {
-  @Provide currentIndex: number = 0
+
   private controller: TabsController = new TabsController()
 
+  @Consume @Watch("onTabSelected") homeTabSelected:number
+
+  @Provide findCurrentIndex: number = 0  //提供初始值
+  onTabSelected(){
+    LogUtils.debug("Find-onHomeTabSelected>>>",`${this.homeTabSelected}`)
+  }
   build() {
     Column() {
       CommonTopBar({ title: "发现", alpha: 1, backButton: false })
@@ -29,7 +36,7 @@ export struct FindPage {
         .barHeight(50) //barHeight高度一定要和TabBuilder中控件的高度一致
         .barMode(BarMode.Fixed)
         .onChange((index => {
-          this.currentIndex = index;
+          this.findCurrentIndex = index;
         }))
       }
     }
@@ -52,7 +59,7 @@ export struct FindPage {
         .strokeWidth(4)
         .color("#ffffff")
         .width(50)
-        .visibility(this.currentIndex == index ? Visibility.Visible : Visibility.Hidden)
+        .visibility(this.findCurrentIndex == index ? Visibility.Visible : Visibility.Hidden)
         .lineCap(LineCapStyle.Round).margin({bottom:0.5})
     }
     .width("101%") //解决Tab连接处白线问题

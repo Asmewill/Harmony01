@@ -17,12 +17,29 @@ export struct TopicPage {
   @State showLoadMore: boolean = false;
   @State brief:string=""
 
+  @Consume @Watch("onHomeTabSelected") homeTabSelected: number
+
+  @Consume @Watch("onFindTabSelected") findCurrentIndex: number
+  private hasInit = false
+
+  onHomeTabSelected(){
+    if(!this.hasInit&&this.homeTabSelected==1&&this.findCurrentIndex==2){
+      this.loadNet()
+      this.hasInit=true;
+    }
+  }
+  onFindTabSelected(){
+    if(!this.hasInit&&this.homeTabSelected==1&&this.findCurrentIndex==2){
+      this.loadNet()
+      this.hasInit=true;
+    }
+  }
+
   aboutToAppear() {
     TopViewModel.observeState((state)=>{
       this.viewState=state;
-
     })
-    this.loadNet()
+   // this.loadNet()
   }
 
   loadNet() {

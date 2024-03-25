@@ -3,6 +3,7 @@ import { ItemList } from '../../model/FocusModel';
 import { ItemChildList } from '../../model/ItemChildList';
 import { RoutePath } from '../../route/RoutePath';
 import Router from '../../route/Router';
+import { LogUtils } from '../../utils/LogUtils';
 import ToastUtils from '../../utils/ToastUtils';
 import showToast from '../../utils/ToastUtils';
 
@@ -21,20 +22,33 @@ export struct FocusPage {
   @State valueList: ItemList[] = [];
   @State showLoadMore:boolean=false;
   pageIndex:number=0;
+  @Consume @Watch("onHomeTabSelected") homeTabSelected: number
 
+  @Consume @Watch("onFindTabSelected") findCurrentIndex: number
+  private hasInit = false
 
-  // onHomeTabSelected() {
-  //   LogUtils.debug("Focus-homeTabSelectedIndex>>>", `FindIndex:${this.currentIndex}>>>HomeIndex${this.homeTabSelected}`)
-  // }
-  //
-  // onFindTabSelected() {
-  //   LogUtils.debug("Focus-onFindTabSelectedIndex>>>", `FindIndex:${this.currentIndex}>>>HomeIndex${this.homeTabSelected}`)
-  // }
+  onHomeTabSelected() {
+    if(!this.hasInit&&this.homeTabSelected==1&&this.findCurrentIndex==0){
+      this.loadNet()
+      this.hasInit=true;
+    }
+    LogUtils.debug("Focus-homeTabSelectedIndex>>>", `FindIndex:${this.findCurrentIndex}>>>HomeIndex${this.homeTabSelected}`)
+
+  }
+
+  onFindTabSelected() {
+    if(!this.hasInit&&this.homeTabSelected==1&&this.findCurrentIndex==0){
+      this.loadNet()
+      this.hasInit=true;
+    }
+    LogUtils.debug("Focus-onFindTabSelectedIndex>>>", `FindIndex:${this.findCurrentIndex}>>>HomeIndex${this.homeTabSelected}`)
+  }
+
   aboutToAppear() {
     FocusViewModel.observeState((state)=>{
       this.viewState=state;
     })
-    this.loadNet();
+   // this.loadNet();
   }
 
   loadNet() {

@@ -14,14 +14,27 @@ export struct CategoryPage {
   @State viewState: string = ViewStateConstant.VIEW_STATE_LOADING;
   @State categoryList: CategoryModel[] = [];
   @State dataSource: BaseDataSourceWrapper<CategoryModel> = new BaseDataSourceWrapper<CategoryModel>([])
+  @Consume @Watch("onHomeTabSelected") homeTabSelected: number
 
+  @Consume @Watch("onFindTabSelected") findCurrentIndex: number
+  private hasInit = false
+  onHomeTabSelected(){
+    if(!this.hasInit&&this.homeTabSelected==1 && this.findCurrentIndex==1){
+      this.loadNet()
+      this.hasInit=true;
+    }
+  }
+  onFindTabSelected(){
+    if(!this.hasInit&&this.homeTabSelected==1 && this.findCurrentIndex==1){
+      this.loadNet()
+      this.hasInit=true;
+    }
+  }
   aboutToAppear() {
-
     CategoryViewModel.observeState((state) => {
       this.viewState = state
     })
-    this.loadNet()
-
+   // this.loadNet()
   }
 
   loadNet() {

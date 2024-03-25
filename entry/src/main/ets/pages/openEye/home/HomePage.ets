@@ -2,6 +2,7 @@ import { ViewStateConstant } from '../../../common/constants/ViewStateConstant'
 import { IssueList, ItemList } from '../model/HomeModel'
 import { RoutePath } from '../route/RoutePath'
 import Router from '../route/Router'
+import { LogUtils } from '../utils/LogUtils'
 import showToast from '../utils/ToastUtils'
 import HomeViewModel from '../viewmodel/HomeViewModel'
 
@@ -18,18 +19,17 @@ export struct HomePage {
   @State isRefreshing: boolean = false;
   @State showLoadMore: boolean = false;
 
+  @Consume @Watch("onTabSelected") homeTabSelected:number
+
+  onTabSelected(){
+    LogUtils.debug("Home-onTabSelected>>>",`${this.homeTabSelected}`)
+  }
+
   aboutToAppear() {
-    // for(let i=0;i<100;i++){
-    //   this.dataList.push(new ItemList())
-    // }
-    // setTimeout(()=>{
-    //   this.viewState =ViewStateConstant.VIEW_STATE_ERROR
-    // },3000)
     HomeViewModel.observeState(state => {
       this.viewState = state;
     })
     this.loadNet();
-
   }
 
   loadNet() {

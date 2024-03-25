@@ -6,12 +6,30 @@ import { CommonTopBar } from '../../views/CommonTopBar'
 
 @Component
 export struct RankPage {
+  private positionIndex:number;
   rankType: string = "weekly"
   @State dataList: ItemList[] = []
   viewModel = new RankViewModel();
+  @Consume @Watch("onHomeTabSelected") homeTabSelected:number;
+  @Consume @Watch("onHotTabSelected") hotCurrentIndex:number;
+  private hasInit=false;
+  onHotTabSelected(){
+    if(!this.hasInit&&this.homeTabSelected==2&&this.hotCurrentIndex==this.positionIndex){
+      this.hasInit=true;
+      this.loadNet()
+    }
+  }
+
+  onHomeTabSelected(){
+    if(!this.hasInit&&this.homeTabSelected==2&&this.hotCurrentIndex==this.positionIndex){
+      this.hasInit=true;
+      this.loadNet()
+    }
+
+  }
 
   aboutToAppear() {
-    this.loadNet()
+    //this.loadNet()
   }
 
   loadNet() {
